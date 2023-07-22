@@ -1,16 +1,16 @@
 // Side of one square.
-width = 5;
+width = 18.5;
 // Height of the peices.
-height = 1;
+height = 4.2;
 // Half the width of the grooves.
-hg_width = 0.25;
+hg_width = 0.8;
 
 // One block in the blokus peices.
 module blokus_block(width=width, height=height, hg_width=hg_width) {
-translate([hg_width, hg_width, 0]) 
-cube([width-hg_width*2, width-hg_width*2, 1]);
-translate([0, 0, hg_width]) 
-cube([width, width, 1 - hg_width*2]);
+    translate([hg_width, hg_width, 0]) 
+    cube([width-hg_width*2, width-hg_width*2, height]);
+    translate([0, 0, hg_width]) 
+    cube([width, width, height - hg_width*2]);
 }
 
 // A Blokus peice created by a matrix with ones where the blocks are supposed to be.
@@ -31,5 +31,4 @@ shape_array = [[0,1,0],
                [1,1,1]];
 
 blokus_shape(shape_array);
-
 
